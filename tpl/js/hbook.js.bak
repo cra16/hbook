@@ -28,6 +28,6 @@ function completeContentWish(ret_obj) {
     var page = ret_obj['page'];
     alert(message);
 
-	var url = current_url.setQuery('act','dispHbookContentView');
+	var url = current_url.setQuery('act','dispHbookContentView').setQuery('trade_srl','');
     location.href = url;
 }
