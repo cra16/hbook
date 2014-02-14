@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    <grants>
+        <grant name="list" default="member">
+            <title xml:lang="ko">목록</title>
+        </grant>
+        <grant name="view" default="member">
+            <title xml:lang="ko">열람</title>
+        </grant>
+        <grant name="write" default="member">
+            <title xml:lang="ko">입력</title>
+        </grant>
+        <grant name="delete" default="member">
+            <title xml:lang="ko">삭제</title>
+		</grant>
+	</grants>
+    <permissions>
+		<permission action="dispHbookAdminShow" target="manager" />
+        <permission action="dispHbookAdminDeleteHbook" target="manager" />
+        <permission action="dispHbookAdminInfoHbook" target="manager" />
+        <permission action="dispHbookAdminGrantInfo" target="manager" />
+        <permission action="dispHbookAdminSkinInfo" target="manager" />
+		<permission action="dispHbookAdminInsertHbook" target="manager" />
+
+        <permission action="procHbookAdminDeleteHbook" target="manager" />
+		<permission action="procHbookAdminInsertHbook" target="manager" />
+
+    </permissions>
+    <actions>
+		<action name="procHbookAdminInsertHbook" type="controller" standalone="true" />
+		<action name="procHbookAdminDeleteHbook" type="controller" standalone="true" />
+
+		<action name="dispHbookAdminShow" type="view" standalone="true" admin_index="true" />
+		<action name="dispHbookAdminInsertHbook" type="view" standalone="true" />
+		<action name="dispHbookAdminSkinInfo" type="view" standalone="true" />
+		<action name="dispHbookAdminGrantInfo" type="view" standalone="true" />
+		<action name="dispHbookAdminInfoHbook" type="view" standalone="true" />
+		<action name="dispHbookAdminDeleteHbook" type="view" standalone="true" />
+
+		<action name="procHbookContentWrite" type="controller" />
+		<action name="procHbookContentDelete" type="controller" />
+		<action name="procHbookContentSearch" type="controller" />
+		<action name="procHbookOrderinfo" type="controller" standalone="true" />
+		<action name="procHbookTradeFinish" type="controller" />
+
+		<action name="dispHbookFirst" type="view" index="true" />
+		<action name="dispHbookContentNew" type="view" />
+		<action name="dispHbookContentList" type="view" />
+		<action name="dispHbookContentSearch" type="view" />
+		<action name="dispHbookContentView" type="view" />
+		<action name="dispHbookMessage" type="view" />
+		<action name="dispHbookContentWrite" type="view" />
+		<action name="dispHbookContentDelete" type="view" />
+		<action name="dispHbookTradeRequest" type="view" />
+		<action name="dispHbookMytrade" type="view" />
+		<action name="dispHbookAladdinSearch" type="view" />
+		<action name="dispHbookAladdinListResult" type="view" />
+		<action name="dispHbookAladdinContentResult" type="view" />
+	</actions>
+	<menus>
+	</menus>
+</module>

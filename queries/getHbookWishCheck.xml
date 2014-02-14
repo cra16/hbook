@@ -1,0 +1,12 @@
+<query id="getHbookWishCheck" action="select">
+    <tables>
+        <table name="wishinfo" />
+    </tables>
+    <columns>
+        <column name="*" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="wisher_nick" var="wisher_nick" />
+        <condition operation="equal" column="trade_srl" var="trade_srl" pipe="and" />
+    </conditions>
+</query>

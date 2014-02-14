@@ -1,0 +1,18 @@
+<!-- 거래글 테이블 -->
+<table name="hbookinfo">
+	<column name="trade_srl" type="number" size="11" notnull="notnull" auto_increment="auto_increment" primary_key="primary_key" />
+    <column name="module_srl" type="number" size="11" default="0" notnull="notnull" index="idx_module_srl" />
+	<column name="isbn" type="varchar" size="17" />
+	<column name="book_title" type="varchar" size="40" />
+	<column name="book_author" type="varchar" size="40" />
+	<column name="book_publisher" type="varchar" size="40" />
+	<column name="book_price" type="number" size="11" />
+	<column name="hope_price" type="number" size="11" />
+	<column name="genre" type="varchar" size="20" />
+    <column name="regdate" type="date" notnull="notnull" />
+	<column name="ting" type="number" size="1" notnull="notnull" default="0" />
+	<column name="phonenum" type="varchar" size="15" notnull="notnull" />
+	<!--
+	<column name="hseller_nick" type="varchar" size="40" notnull="notnull" />
+	-->
+</table>

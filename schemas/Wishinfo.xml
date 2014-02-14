@@ -1,0 +1,19 @@
+<!-- 찜목록 테이블 -->
+<table name="Wishinfo">
+	<column name="trade_srl" type="number" size="11" notnull="notnull"/>
+    <column name="module_srl" type="number" size="11" default="0" notnull="notnull" index="idx_module_srl" />
+    <column name="wisher_nick" type="varchar" size="11" /> 
+	<column name="isbn" type="varchar" size="17" />
+	<column name="book_title" type="varchar" size="40" /> 
+	<column name="book_author" type="varchar" size="40" />
+	<column name="book_publisher" type="varchar" size="40" />
+	<column name="book_price" type="number" size="11" />
+	<column name="hope_price" type="number" size="11" />
+	<column name="genre" type="varchar" size="20" />
+    <column name="regdate" type="date" notnull="notnull" />
+	<column name="ting" type="number" size="1" notnull="notnull" default="0" />
+
+	<!--
+	<column name="hseller_nick" type="varchar" size="40" notnull="notnull" />
+	-->
+</table>

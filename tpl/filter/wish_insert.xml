@@ -1,0 +1,9 @@
+<filter name="wish_insert" module="hbook" act="procHbookContentWish" confirm_msg_code="confirm_wish">
+  <form>
+  </form>
+  <parameter />
+  <response callback_func="completeContentWish">
+     <tag name="error" />
+     <tag name="message" />
+  </response>
+</filter>

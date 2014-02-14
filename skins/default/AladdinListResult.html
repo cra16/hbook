@@ -1,0 +1,70 @@
+<!--상품 list 출력 page :html table 버전-->
+<html>
+	<head>
+		<title> 상품 List 출력 </title>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />	
+	</head>
+	<body>
+
+		<?php
+		include_once('AladdinOpenAPI.php');
+
+		if($isError) {
+			echo "<li>에러메세지: $errMsg</li>";
+		} else {
+			foreach($xmlParser->itemList as $item) {
+				//$img = $item -> COVER;
+				//$title = $item -> TITLE;
+				//$author = $item -> AUTHOR;
+				//$publisher = $item -> PUBLISHER;
+				
+		?>
+			<table class="list_table" border="1">
+				<tr>
+					<td rowspan="3" class="img_table"> 
+						<?php 
+							$img = str_replace('&', '&amp;', $item["COVER"]);
+							echo "<a href='".getUrl('act','dispHbookAladdinContentResult', 'isbn', $item["ISBN"], 'isbn13', $item["ISBN13"], 'link', $item["LINK"])."'> <img src='".$item["COVER"]."' alt='NO image'/></a>"; 
+						?>
+						
+					</td>
+					<td>
+						<li>제목: <b><?php echo $item["TITLE"]; ?></b></li>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<li>저자: <?php echo $item["AUTHOR"]; ?></li>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<li>출판사: <?php echo $item["PUBLISHER"]; ?></li>
+					</td>
+				</tr>
+			</table> 
+		
+
+			<style>
+				.list_table{
+					position: relative;
+					float:left;
+					width: 100%;
+					border: 1px solid;
+					text-align: left;
+					vertical-align: middle;
+				}
+
+				.img_table{
+				   width: 90px;
+				   height: 120px;
+				}
+
+			</style>
+		<?php
+			}
+		}
+		?>
+
+	</body>
+</html>

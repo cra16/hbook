@@ -1,0 +1,145 @@
+<!--#include("_header.html")-->
+
+<h2>Book View : {$book_info->book_title}</h2>
+
+<!-- 도서 정보 -->
+<table border="0" class="bookTable">
+	<tr>
+		<th>BOOK</th>
+		<th>{$lang->book_infomation}</th>
+	</tr>
+	<tr>
+		<th>{$lang->category}</th>
+		<td>{$module_info->browser_title}</td>
+	</tr>
+	<tr>
+		<th>{$lang->book_no}</th>
+		<td>{$book_info->trade_srl}</td>
+	</tr>
+	<tr>
+		<th>I S B N</th>
+		<td>{$book_info->isbn}</td>
+	</tr>
+	<tr>
+		<th>{$lang->book_title}</th>
+		<td>{$book_info->book_title}</td>
+	</tr>
+	<tr>
+		<th>{$lang->book_author}</th>
+		<td>{$book_info->book_author}</td>
+	</tr>
+	<tr>
+		<th>{$lang->book_publisher}</th>
+		<td>{$book_info->book_publisher}</td>
+	</tr>
+	<tr>
+		<th>{$lang->book_price}</th>
+		<td>{$book_info->book_price}</td>
+	</tr>
+	<tr>
+		<th>희망가격</th>
+		<td>{$book_info->hope_price}</td>
+	</tr>
+	<tr>
+		<th>장 르</th>
+		<td>{$book_info->genre}</td>
+	</tr>
+	<tr>
+		<th>등록일자</th>
+		<td>{$book_info->regdate}</td>
+
+	</tr>
+<!--@if(($logged_info->nick_name)==($order_info->customer_nick))-->
+	<tr>
+		<th class="pp">폰번호</th>
+		<td><strong><font color="red">{$book_info->phonenum}</font>&nbsp&nbsp[ * 구매자에게만 공개됩니다 * ]</strong></td>
+	</tr>
+<!--@end-->
+</table>
+
+<br />
+
+<table>
+	<tr>
+		<td>
+<!-- 버튼 -->
+<div class="btn" onclick="history.back(); return false;"><span>{$lang->cmd_back}</span></div>
+		</td>
+<!-- 거래 완료 시 버튼 제거 -->
+<!--@if(($book_info->ting)<2)-->
+
+<!--@if(($logged_info->nick_name)==($order_info->seller_nick))-->
+		<td>
+<div class="btn"><a href="{getUrl('act','dispHbookContentWrite','trade_srl',$book_info->trade_srl)}" title="{$lang->cmd_modify}"><span>{$lang->cmd_modify}</span></a></div>
+		</td>
+		<td>
+<div class="btn"><a href="{getUrl('act','dispHbookContentDelete','trade_srl',$book_info->trade_srl,'book_title',$book_info->book_title,'ting',$book_info->ting)}" title="{$lang->cmd_delete}"><span>{$lang->cmd_delete}</span></a></div>
+		</td>
+<!--@end-->
+
+		<td>
+	    <!-- 찜버튼 -->
+	    <form action="./" method="post" onsubmit="return procFilter(this, wish_insert);">
+	    <input type="hidden" name="module_srl" value="{$module_srl}" />
+	    <!--@if(!($book_info->ting))-->
+	    <input type="hidden" name="ting" value=0 />
+	    <!--@else-->
+	    <input type="hidden" name="ting" value=1 />
+	    <!--@end-->
+	    <input type="hidden" name="regdate" value="{date("Ymd")}" />
+	    <input type="hidden" name="trade_srl" value="{$trade_srl}" />
+	    <input type="hidden"   name="wisher_nick" value="{$logged_info->nick_name}" />
+	    <input type="hidden" name="isbn" value="{$book_info->isbn}" size="40" />
+	    <input type="hidden" name="book_title" value="{$book_info->book_title}" size="40" />
+	    <input type="hidden" name="book_author" value="{$book_info->book_author}" size="40" />
+	    <input type="hidden" name="book_publisher" value="{$book_info->book_publisher}" size="20" />
+	    <input type="hidden" name="book_price" value="{$book_info->book_price}" size="20" />
+	    <input type="hidden" name="hope_price" value="{$book_info->hope_price}" size="20" />
+	    <input type="hidden" name="genre" value="{$book_info->genre}" size="40" />
+	    <span class="btn"><input type="submit" value="찜하기"/></span>
+	    </form>		
+	    </td>
+	    
+		<td>
+<!--구매자와 거래상태 정보를 위한 폼양식-->
+
+<!--@if($book_info->ting)-->
+<form action="./" method="post" onsubmit="return procFilter(this, order_cancel);">
+<!--@else-->
+<form action="./" method="post" onsubmit="return procFilter(this, order_insert);">
+<!--@end-->
+	<input type="hidden" name="module_srl" value="{$module_srl}" />
+	<input type="hidden" name="ting" value="{$book_info->ting}" />
+	<input type="hidden" name="customer_nick" value="{$logged_info->nick_name}" />
+	<input type="hidden" name="trade_srl" value="{$book_info->trade_srl}" />
+	<!--@if(!($book_info->ting))-->
+	<!--@if(($logged_info->nick_name)!=($order_info->seller_nick))-->
+	<span class="btn"><input type="submit" value="{$lang->trade_request}"/></span>
+	<!--@end-->
+	<!--@else-->
+		<!--@if(($logged_info->nick_name)==($order_info->customer_nick)||($logged_info->nick_name)==($order_info->seller_nick))-->
+			<span class="btn"><input type="submit" value="{$lang->trade_cancel}"/></span>
+		<!--@else-->
+			<div class="btn"><span>{$lang->trade_ing}</span></div>
+		<!--@end-->
+	<!--@end-->
+</form>
+		</td>
+<!--@if($book_info->ting)-->
+<!--@if(($logged_info->nick_name)==($order_info->customer_nick)||($logged_info->nick_name)==($order_info->seller_nick))-->
+		<td>
+<form action="./" method="post" onsubmit="return procFilter(this, order_finish);">
+	<input type="hidden" name="module_srl" value="{$module_srl}" />
+	<input type="hidden" name="ting" value="{$book_info->ting}" />
+	<input type="hidden" name="trade_srl" value="{$book_info->trade_srl}" />
+	<span class="btn"><input type="submit" value="{$lang->trade_finished}" /></span>
+</form>
+		</td>
+<!--@end-->
+<!--@end-->
+<!--@end-->
+	</tr>
+</table>
+
+
+<!--#include("_footer.html")-->

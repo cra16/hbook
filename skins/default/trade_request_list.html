@@ -1,0 +1,61 @@
+<!--#include("_header.html")-->
+<h2> = = 나의 거래 요청 목록 = = </h2>
+
+<!-- 목록 -->
+<table border="1" class="bookTable">
+	<thead>
+		<tr>
+			<th>{$lang->no}</th>
+			<th>{$lang->book_title}</th>
+			<th>{$lang->book_author}</th>
+			<th>{$lang->book_publisher}</th>
+			<th>{$lang->book_price}</th>
+			<th>{$lang->hope_price}</th>
+			<th>{$lang->regdate}</th>
+			<th>{$lang->ting}</th>
+		</tr>
+	</thead>
+
+	<tbody>
+	<!--@foreach($book_list as $no => $book_info)-->
+		<tr>
+			<td>{$book_info->trade_srl}</td>
+			<td><a href="{getUrl('act', 'dispHbookContentView', 'trade_srl', $book_info->trade_srl)}">{$book_info->book_title}</a></td>
+			<td>{$book_info->book_author}</td>
+			<td>{$book_info->book_publisher}</td>
+			<td>{$book_info->book_price}</td>
+			<td>{$book_info->hope_price}</td>
+			<td>{$book_info->regdate}</td>
+			<!--@if(!$book_info->ting)-->
+			<td>대기중</td>
+			<!--@else if($book_info->ting==1)-->
+			<td>거래중</td>
+			<!--@else-->
+			<td>거래완료</td>
+			<!--@end-->
+		</tr>
+	<!--@end-->
+	</tbody>
+</table>
+<br />
+
+<!-- 버튼 -->
+<div class="btn">
+	<a href="{getUrl('','mid',$mid)}" class="button green" title="HOME"><span>HOME</span></a>
+</div>
+
+<!-- 페이지 네비게이션 -->
+<div class="pagination a1">
+    <a href="{getUrl('page','','module_srl','')}" class="prevEnd">{$lang->first_page}</a>
+    <!--@while($page_no = $page_navigation->getNextPage())-->
+        <!--@if($page == $page_no)-->
+            <strong>{$page_no}</strong> 
+        <!--@else-->
+            <a href="{getUrl('page',$page_no,'module_srl','')}">{$page_no}</a> 
+        <!--@end-->
+    <!--@end-->
+    <a href="{getUrl('page',$page_navigation->last_page,'module_srl','')}" class="nextEnd">{$lang->last_page}</a>
+</div>
+
+
+<!--#include("_footer.html")-->

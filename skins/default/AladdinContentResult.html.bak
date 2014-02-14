@@ -1,0 +1,76 @@
+<!--#include("_header.html")-->
+
+<!--상품 Content 출력 page :html table 버전-->
+
+<html>
+	<head>
+		<title> 상품 Content 출력 </title>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />	
+
+	</head>
+		<script type="text/javascript">
+
+		function submitTitle(){
+			opener.document.all.book_title.value = document.all["title"].innerText;
+			opener.document.all.book_author.value = document.all["author"].innerText;
+			opener.document.all.book_publisher.value = document.all["publisher"].innerText;
+			opener.document.all.isbn.value = document.all["isbn13"].innerText;
+			window.close();
+		}
+		function init(){
+			document.all.searchterm.value = document.all["title"].innerText;
+		}
+
+		</script>
+	<body onload="init();">
+
+		<?php
+		include_once('AladdinOpenAPI.php');
+
+		if($isError) {
+			echo "<li>에러메세지: $errMsg</li>";
+		} else {
+			foreach($xmlParser->itemList as $item) {
+				echo "<li>";
+
+				$img = str_replace('&', '&amp;', $item["COVER"]);
+				echo "<img src='".$img."' alt='NO image' align='top' /><br>";
+
+				echo "<b id='title'>".$item['TITLE']."</b><br/>";
+				echo "저자 : "."<b id='author'>".$item['AUTHOR']."</b><br>";
+				echo "출판사 : "."<b id='publisher'>".$item['PUBLISHER']."</b><br>";
+				echo "가격 : <s>".$item['PRICESTANDARD']."</s>→";
+				echo $item['PRICESALES']."<br>";
+
+				echo "설명 : ".$item['DESCRIPTION']."<br>";
+				echo "isbn: ".$item['ISBN']."<br>";
+				echo "isbn13: "."<b id='isbn13'>".$item['ISBN13']."</b><br>";
+
+				$link = str_replace('&', '&amp;', $item["LINK"]);
+				echo "link: ".$link."<br>";
+				
+				echo '</li>';
+			}
+		}
+		?>
+
+		<br><br>
+
+		<!--@if($lay)-->
+		<button type="submit" class="btn" onclick="submitTitle()">넣기</button>
+		<!--@end-->
+		<!--@if($search)-->
+		<form action="{getUrl()}" method="get" id="board_search" no-error-return-url="true">
+		<input type="hidden" name="mid" value="{$mid}" />
+		<input type="hidden" name="act" value="dispHbookContentSearch">
+		<input type="hidden" name="searchterm">
+		<button type="submit" class="btn" onclick="xGetElementById('board_search').submit();return false;">검색</button>
+		</form>
+		<!--@end-->
+		<br><br>
+		<a href="{$link}"> 알라딘에서 구매하기 </a>
+		<br>
+	</body>
+</html>
+
+<!--#include("_footer.html")-->

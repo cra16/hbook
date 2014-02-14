@@ -1,0 +1,98 @@
+<!--#include("_header.html")-->
+
+<script type="text/javascript">
+
+var objWindow = null;
+function openNew(nwurl){
+	var settings = 'width=500, height=700, location=no, toolbar=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no';
+
+	objWindow = window.open(nwurl, "_blank", settings);
+	objWindow.document.all.searchterm2.value = document.all.book_title.value;
+}
+
+</script>
+
+<h2><!--@if(!$book_info->trade_srl)-->거래 등록<!--@else-->거래 수정<!--@end--></h2>
+
+<!--@if(!$book_info->ting)-->
+
+<form action="./" method="post" onsubmit="return procFilter(this, content_insert);">
+<input type="hidden" name="module_srl" value="{$module_srl}" />
+<input type="hidden" name="ting" value=0 />
+<input type="hidden" name="regdate" value="{date("Ymd")}" />
+<input type="hidden" name="trade_srl" value="{$trade_srl}" />
+<input type="hidden" name="seller_nick" value="{$logged_info->nick_name}" />
+
+<table border="1" class="bookTable">
+	<tr>
+		<th>BOOK</th>
+		<th>{$lang->book_infomation}</th>
+	</tr>
+	<tr>
+		<th>{$lang->category}</th>
+		<td class="left">{$module_info->browser_title}</td>
+	</tr>
+	<tr>
+		<th>I S B N</th>
+		<td class="left"><input type="text" name="isbn" value="{$book_info->isbn}" size="40" />
+		</td>
+	</tr>
+	<tr>
+		<th>{$lang->book_title}</th>
+		<td class="left"><input type="text" name="book_title" value="{$book_info->book_title}" size="40" />
+		<div class="btn">
+		<a href="{getUrl('act','dispHbookContentNew')}" title="책 정보 검색" target="_blank" onclick="javascript:openNew(this.href);return false;">검색</a>
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<th>{$lang->book_author}</th>
+		<td class="left"><input type="text" name="book_author" value="{$book_info->book_author}" size="40" /></td>
+	</tr>
+	<tr>
+		<th>{$lang->book_publisher}</th>
+		<td class="left"><input type="text" name="book_publisher" value="{$book_info->book_publisher}" size="20" /></td>
+	</tr>
+	<tr>
+		<th>{$lang->book_price}</th>
+		<td class="left"><input type="text" name="book_price" value="{$book_info->book_price}" size="20" /> ＊숫자만 입력 할 수 있습니다.</td>
+	</tr>
+	<tr>
+		<th>희망가격</th>
+		<td class="left"><input type="text" name="hope_price" value="{$book_info->hope_price}" size="20" /> ＊숫자만 입력 할 수 있습니다.</td>
+	</tr>
+	<tr>
+		<th>장 르</th>
+		<td class="left"><input type="text" name="genre" value="{$book_info->genre}" size="40" /></td>
+	</tr>
+</table>
+
+<br />
+
+<div class="btn" onclick="history.back(); return false;"><span>{$lang->cmd_back}</span></div>
+
+<span class="btn"><input type="submit" value="{$lang->cmd_input}"/></span> 
+
+
+</form>
+
+
+<!--@else-->
+<form>
+<table border="0" class="bookTable">
+	<tr>
+		<th>
+			<p>거래 중인 상품으로 취소할 수 없습니다.</p>
+		</th>
+	</tr>
+	<tr>
+		<td>
+			<span class="button"><input type="button" value="{$lang->cmd_back}" onclick="history.back(); return false;" /></span>
+		</td>
+	</tr>
+</table>
+
+</form>
+
+<!--@end-->
+<!--#include("_footer.html")-->

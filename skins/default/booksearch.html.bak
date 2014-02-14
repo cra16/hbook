@@ -1,0 +1,31 @@
+<!--#include("_header.html")-->
+
+<h2>Book Search </h2>
+
+	<div>
+		<form action="{getUrl()}" method="GET" id="AladdinSearch" no-error-return-url="true">
+			<input type="hidden" name="act" value="dispHbookAladdinListResult">
+			<b>TITLE</b> <input type="text" name="title" id="title">
+			<input type="submit" value="{$lang->cmd_book_search}">
+		</form>
+	</div>
+
+<br />
+<h2>Book Register</h2>
+
+<!-- 버튼 -->
+<div class="btn">
+	<a href="{getUrl('act','dispHbookContentWrite')}" title="{$lang->cmd_input}"><span><strong>이것을누르면빠른판매!!</strong></span></a>
+</div>
+
+<h2>나의 거래 목록</h2>
+
+<!-- 구매목록버튼 -->
+<div class="btn">
+	<a href="{getUrl('act','dispHbookMytrade', kotrade, 0)}" title="{$lang->cmd_input}"><span><strong>요것을누르믄나의구매목록!!</strong></span></a>
+</div>
+<!-- 판매목록버튼 -->
+<div class="btn">
+	<a href="{getUrl('act','dispHbookMytrade', kotrade, 1)}" title="{$lang->cmd_input}"><span><strong>요것을누르믄나의판매목록!!</strong></span></a>
+</div>
+<!--#include("_footer.html")-->

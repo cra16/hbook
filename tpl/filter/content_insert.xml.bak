@@ -1,0 +1,16 @@
+<filter name="content_insert" module="hbook" act="procHbookContentWrite" confirm_msg_code="confirm_submit">
+  <form>
+	<node target="isbn" required="true" maxlength="17" />
+    <node target="book_title" required="true" maxlength="40" filter="korean_alpha_number" />
+	<node target="book_author" required="true" maxlength="40" />
+	<node target="book_publisher" required="true" maxlength="40" />
+    <node target="book_price" required="true" maxlength="11" filter="number" />
+    <node target="hope_price" required="true" maxlength="11" filter="number" />
+	<node target="genre" required="true" maxlength="40" />
+  </form>
+  <parameter />
+  <response callback_func="completeContentInsert">
+     <tag name="error" />
+     <tag name="message" />
+  </response>
+</filter>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+    <title xml:lang="ko"> HGU BOOK TRADE SKIN </title>
+    <description xml:lang="ko">
+        hgu book trade 모듈 만들기
+    </description>
+    <version>0.1</version>
+    <date>2011-10-01</date>
+    <author email_address="" link="http://www.xeschool.com">
+        <name xml:lang="ko">CRA</name>
+    </author>
+    <license>GPL</license>
+</skin>
+

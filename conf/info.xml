@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="0.2">
+    <title xml:lang="ko">H_BOOK 타이틀</title>
+    <description xml:lang="ko">H_BOOK 모듈입니다.</description>
+    <version>0.1</version>
+    <date>2013-02-03</date>
+    <category>service</category>
+
+    <author email_address="yjh2067@gmail.com" link="http://developers.com/">
+        <name xml:lang="ko">CRA</name>
+    </author>
+</module>

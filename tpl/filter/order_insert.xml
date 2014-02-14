@@ -1,0 +1,8 @@
+<filter name="order_insert" module="hbook" act="procHbookOrderinfo" confirm_msg_code="confirm_order">
+  <form />
+  <parameter />
+  <response callback_func="completeContentInsert">
+     <tag name="error" />
+     <tag name="message" />
+  </response>
+</filter>

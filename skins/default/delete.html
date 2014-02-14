@@ -1,0 +1,44 @@
+<!--#include("_header.html")-->
+
+<h2>거래 삭제</h2>
+<!--@if(!$ting)-->
+<form action="./" method="get" onsubmit="return procFilter(this, content_delete)">
+<input type="hidden" name="trade_srl" value="{$trade_srl}" />
+
+<table border="0" class="bookTable">
+    <tr>
+        <th>{$lang->book_no}</th>
+        <td>{$trade_srl}</td>
+    </tr>
+	<tr>
+		<th>{$lang->book_title}</th>
+		<td>{$book_title}</td>
+    </tr>
+    <tr>
+        <th colspan="2" class="button">
+			<span class="button"><input type="button" value="{$lang->cmd_back}" onclick="history.back(); return false;" /></span>
+			<span class="button black strong"><input type="submit" value="{$lang->cmd_delete}" /></span>
+        </th>
+    </tr>
+</table>
+</form>
+
+<!--@else-->
+<form>
+<table border="0" class="bookTable">
+	<tr>
+		<th>
+			<p>거래 중인 상품으로 취소할 수 없습니다.</p>
+		</th>
+	</tr>
+	<tr>
+		<td>
+			<span class="button"><input type="button" value="{$lang->cmd_back}" onclick="history.back(); return false;" /></span>
+		</td>
+	</tr>
+</table>
+
+</form>
+
+<!--@end-->
+<!--#include("_footer.html")-->

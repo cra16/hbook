@@ -1,0 +1,8 @@
+<filter name="order_finish" module="hbook" act="procHbookTradeFinish" confirm_msg_code="confirm_finish">
+  <form />
+  <parameter />
+  <response callback_func="completeContentInsert">
+     <tag name="error" />
+     <tag name="message" />
+  </response>
+</filter>

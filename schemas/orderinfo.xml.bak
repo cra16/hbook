@@ -1,0 +1,6 @@
+<!-- 거래현황 테이블 -->
+<table name="orderinfo">
+	<column name="seller_nick" type="varchar" size="40" notnull="notnull"/>
+	<column name="customer_nick" type="varchar" size="40" />
+	<column name="trade_srl" type="number" size="11" primary_key="primary_key" auto_increment="auto_increment" />
+</table>

@@ -1,0 +1,23 @@
+<!--#include("_header.html")-->
+
+<h2>Book Search </h2>
+
+	<form action="./" method="post" onsubmit="return procFilter(this, search)" id="board_search" no-error-return-url="true">
+
+		<select name="searchtype">
+			<option value="book_title">책 제목</option>
+			<option value="book_author">저 자</option>
+		</select>
+		<input name="searchterm" type="text" value="{htmlspecialchars($searchterm)}">
+		<span class="btn"><input type="submit" value="{$lang->cmd_book_search}"/></span> 
+	</form>
+
+
+<h2>Book Register</h2>
+
+<!-- 버튼 -->
+<div class="btn">
+	<a href="{getUrl('act','dispHbookContentWrite')}" title="{$lang->cmd_input}"><span><strong>이것을누르면빠른판매!!</strong></span></a>
+</div>
+
+<!--#include("_footer.html")-->

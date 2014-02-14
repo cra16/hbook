@@ -1,0 +1,19 @@
+<query id="updateBook" action="update">
+    <tables>
+        <table name="hbookinfo" />
+    </tables>
+     <conditions>
+        <condition operation="equal" column="trade_srl" var="trade_srl" filter="number" notnull="notnull" />
+    </conditions>
+	<columns>
+        <column name="module_srl" var="module_srl" notnull="notnull" />
+		<column name="isbn" var="isbn" />
+        <column name="book_title" var="book_title" />
+        <column name="book_author" var="book_author" />
+		<column name="book_publisher" var="book_publisher" />
+		<column name="book_price" var="book_price" />
+		<column name="hope_price" var="hope_price" />
+		<column name="genre" var="genre" />
+		<column name="regdate" var="regdate" />
+    </columns>
+</query>

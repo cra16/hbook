@@ -1,0 +1,8 @@
+<query id="insertSellinfo" action="insert">
+    <tables>
+        <table name="orderinfo" />
+    </tables>
+    <columns>
+		<column name="seller_nick" var="seller_nick" notnull="notnull" />
+    </columns>
+</query>

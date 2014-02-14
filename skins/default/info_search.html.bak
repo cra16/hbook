@@ -1,0 +1,29 @@
+<!--#include("_header.html")-->
+
+<script type="text/javascript">
+
+function submitTitle(){
+	opener.document.all.book_title.value = document.all.searchterm2.value;
+	opener.document.all.book_author.value = document.all.searchterm2.value;
+	opener.document.all.book_publisher.value = document.all.searchterm2.value;
+	window.close();
+}
+
+function init(){
+	document.all.title.value = opener.document.all.book_title.value;
+}
+
+</script>
+<body onload="init();">
+<h2> Info Search </h2>
+
+	<div>
+	<form action="{getUrl()}" method="get" id="AladdinSearch" no-error-return-url="true">
+		<input type="hidden" name="act" value="dispHbookAladdinListResult">
+		<input type="hidden" name="lay" value=1>
+			<b>TITLE</b> <input type="text" name="title" id="title">
+			<input type="submit" value="SUBMIT">
+	</form>
+	</div>
+</body>
+<!--#include("_footer.html")-->

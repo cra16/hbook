@@ -1,0 +1,10 @@
+<filter name="content_delete" module="hbook" act="procHbookContentDelete">
+    <form>
+        <node target="trade_srl" required="true" />
+    </form>
+    <response callback_func="completeContentDelete">
+        <tag name="error" />
+        <tag name="message" />
+        <tag name="page" />
+    </response>
+</filter>
