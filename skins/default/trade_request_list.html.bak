@@ -1,9 +1,5 @@
 <!--#include("_header.html")-->
-<!--#include("_header.html")-->
-<!--@if($kotrade==0)--><h2> = = 나의 거래 요청 목록 = = </h2>
-<!--@elseif($kotrade==1)--><h2> = = 나의 판매 목록 = = </h2>
-<!--@else--><h2> = = 내가 찜한 목록 = = </h2>
-<!--@end-->
+<h2> = = 나의 거래 요청 목록 = = </h2>
 
 <!-- 목록 -->
 <table border="1" class="bookTable">
