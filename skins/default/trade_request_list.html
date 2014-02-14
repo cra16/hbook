@@ -1,5 +1,4 @@
 <!--#include("_header.html")-->
-<!--#include("_header.html")-->
 <!--@if($kotrade==0)--><h2> = = 나의 거래 요청 목록 = = </h2>
 <!--@elseif($kotrade==1)--><h2> = = 나의 판매 목록 = = </h2>
 <!--@else--><h2> = = 내가 찜한 목록 = = </h2>
@@ -24,9 +23,9 @@
 	<!--@foreach($book_list as $no => $book_info)-->
 		<tr>
 			<td>{$book_info->trade_srl}</td>
-			<td><a href="{getUrl('act', 'dispHbookContentView', 'trade_srl', $book_info->trade_srl)}">{$book_info->book_title}</a></td>
-			<td>{$book_info->book_author}</td>
-			<td>{$book_info->book_publisher}</td>
+			<td class="title"><a href="{getUrl('act', 'dispHbookContentView', 'trade_srl', $book_info->trade_srl)}">{$book_info->book_title}</a></td>
+			<td class="author">{$book_info->book_author}</td>
+			<td class="publisher">{$book_info->book_publisher}</td>
 			<td>{$book_info->book_price}</td>
 			<td>{$book_info->hope_price}</td>
 			<td>{$book_info->regdate}</td>
