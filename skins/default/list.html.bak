@@ -19,6 +19,7 @@ Do you want to build a snowman?
 	</thead>
 <!--@if(!$book_list)-->
  <tbody><tr><td colspan="8">검색정보가없습니다.</td></tr></tbody>
+<!--@end-->
 	<tbody>
 	<!--@foreach($book_list as $no => $book_info)-->
 		<tr>

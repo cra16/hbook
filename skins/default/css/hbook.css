@@ -3,7 +3,11 @@
 .hbook_content {background: #FFF;}
 .hbook_content .bookTable {width: 100%; margin: 0; padding: 0; border-spacing: 0px; border-collapse:collapse; border-top:2px solid #3BAED2; border-bottom:2px solid #AAA}
 .hbook_content .bookTable th {background: #CCF4F4; padding: 5px; border: 1px solid #6666CC; font-weight: bold; text-align: center;}
+.hbook_content .bookTable th.view {width: 20%;background: #CCF4F4; padding: 5px; border: 1px solid #6666CC; font-weight: bold; text-align: center;}
 .hbook_content .bookTable td {padding:5px; background: #FFF; border: 1px solid #6666CC; text-align: center;}
+.hbook_content .bookTable td.title {width: 40%; padding:5px; background: #FFF; border: 1px solid #6666CC; text-align: center;}
+.hbook_content .bookTable td.author {width: 15%; padding:5px; background: #FFF; border: 1px solid #6666CC; text-align: center;}
+.hbook_content .bookTable td.publisher {width: 10%; padding:5px; background: #FFF; border: 1px solid #6666CC; text-align: center;}
 .hbook_content .bookTable th.pp {background: red; padding: 5px; border: 1px solid #6666CC; font-weight: bold; text-align: center;}
 
 .hbook_content .center {text-align: center;}

@@ -5,7 +5,7 @@
 <!-- 도서 정보 -->
 <table border="0" class="bookTable">
 	<tr>
-		<th class="view">BOOK</th>
+		<th>BOOK</th>
 		<th>{$lang->book_infomation}</th>
 	</tr>
 	<tr>

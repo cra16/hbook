@@ -133,6 +133,7 @@ class hbookView extends hbook {
 			if(!$output->data) $output->data = array();
 
 			// $book_list 변수에 담는다.
+			Context::set('kotrade', $kotrade);
 			Context::set('book_list', $output->data);
             Context::set('page', $output->page);
             Context::set('page_navigation', $output->page_navigation);
@@ -352,6 +353,7 @@ class hbookView extends hbook {
 			$logged_info = Context::get('logged_info');
 			$my_nick = $logged_info->nick_name;
 			$args->my_nick = $my_nick;
+			$kotrade = Context::get('kotrade');
 		
 		
 			// module model 객체 생성
@@ -367,6 +369,7 @@ class hbookView extends hbook {
 		
 			 
 			// $book_list 변수에 담는다.
+			Context::set('kotrade', $kotrade);
 			Context::set('book_list', $output->data);
 			Context::set('page', $output->page);
 			Context::set('page_navigation', $output->page_navigation);
