@@ -75,8 +75,8 @@
 		<td>
 <div class="btn"><a href="{getUrl('act','dispHbookContentDelete','trade_srl',$book_info->trade_srl,'book_title',$book_info->book_title,'ting',$book_info->ting)}" title="{$lang->cmd_delete}"><span>{$lang->cmd_delete}</span></a></div>
 		</td>
-<!--@end-->
 
+<!--@else-->
 		<td>
 	    <!-- 찜버튼 -->
 	    <form action="./" method="post" onsubmit="return procFilter(this, wish_insert);">
@@ -99,7 +99,7 @@
 	    <span class="btn"><input type="submit" value="찜하기"/></span>
 	    </form>		
 	    </td>
-	    
+<!--@end-->
 		<td>
 <!--구매자와 거래상태 정보를 위한 폼양식-->
 
